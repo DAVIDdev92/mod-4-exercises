@@ -71,6 +71,10 @@ body {
   font-weight: 600;
   padding: 0.8rem 0;
 }
+#movie-data-hide:hover {
+  color: #fff;
+}
+
 
   
   
