@@ -33,30 +33,32 @@ function createDataElement(rating, year) {
   return element;
 }
 
-// function createFakeButton() {
-//   const element = document.createElement("div");
-//   element.id = "movie-data-hide";
-//   element.textContent = 'Hide data';
-  
-//   element.addEventListener('click', hideData); //<------ AQUI
-  
-//   return element;
-// }
+function createButton() {
+    const element = document.createElement("div");
+    element.id = "movie-data-hide";
+    element.textContent = "Hide Data";
 
-// function hideData() {
-//   const movieDataContainer = document.querySelector("#movie-data-container");
-//   const movieFakeButton = document.querySelector("#movie-data-hide");
-//   movieDataContainer.toggleAttribute('hidden');
-  
-//   const isHidden = movieDataContainer.hasAttribute('hidden');
-//    movieFakeButton.textContent = isHidden ? 'Show data' : 'Hide data';
-// }
+    element.addEventListener("click", hideData);
+
+    return element;
+}
+
+function hideData() {
+    const movieDataContainer = document.querySelector("#movie-data-container");
+    const movieButton = document.querySelector("#movie-data-hide");
+    movieDataContainer.toggleAttribute("hidden");
+
+    const isHidden = movieDataContainer.hasAttribute("hidden");
+    movieButton.textContent = isHidden ? "Show Data" : "Hide Data";
+
+}
+
 
 function createMovieElement(movieObj) {
   const movieElement = document.createElement("div");
   movieElement.className = "movie";
   movieElement.appendChild(createPosterElement(movieObj.poster));
-  // movieElement.appendChild(createFakeButton());
+  movieElement.appendChild(createButton());
   
   const movieDataContainer = document.createElement("div");
   movieDataContainer.id = 'movie-data-container';
@@ -74,3 +76,4 @@ const movieElement = createMovieElement(movie);
 movieContainer.appendChild(movieElement);
 
 document.body.appendChild(movieContainer);
+
